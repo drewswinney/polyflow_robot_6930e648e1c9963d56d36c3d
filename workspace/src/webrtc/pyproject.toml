@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "webrtc"
+version = "0.1.0"
+description = "Polyflow WebRTC bridge node"
+authors = ["Drew Swinney <drew@polyflowrobotics.com>"]
+packages = [{ include = "webrtc" }]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+aiortc = "^1.9.0"
+aioice = "*"
+pyee = "*"
+crc32c = "*"
+aiohttp = "*"
+python-socketio = "*"
+eventlet = "*"
+
+[tool.poetry.scripts]
+webrtc_node = "webrtc.node:main"

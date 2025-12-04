@@ -1,0 +1,221 @@
+.body.logs-page {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+
+  .log-layout {
+    display: flex;
+    gap: 24px;
+    flex: 1;
+    flex-wrap: wrap;
+  }
+
+  .log-controls {
+    flex: 1 1 320px;
+  }
+
+  .group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border: 1px dashed var(--gray200);
+    border-radius: 8px;
+    padding: 16px;
+    background-color: var(--gray25);
+
+    &-header {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      .value {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .filter-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .option {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 8px;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      cursor: pointer;
+
+      input {
+        margin-top: 4px;
+      }
+
+      .option-title {
+        font-weight: 600;
+      }
+
+      .option-description {
+        font-size: 12px;
+        color: var(--gray500);
+      }
+    }
+  }
+
+  .option.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 0;
+    border: none;
+    cursor: default;
+
+    input {
+      margin-top: 0;
+    }
+  }
+
+  .inline-fields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    .field {
+      flex: 1 1 140px;
+    }
+  }
+
+  .text-input,
+  .custom-selector {
+    border: 1px solid var(--gray200);
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 14px;
+    font-family: inherit;
+    background: #fff;
+  }
+
+  .custom-selector {
+    min-height: 90px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    resize: vertical;
+  }
+
+  .actions {
+    display: flex;
+    gap: 8px;
+  }
+
+  .status {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    .value {
+      font-size: 14px;
+      color: var(--gray700);
+    }
+
+    &.error .value {
+      color: #c0392b;
+    }
+
+    &.streaming .value {
+      color: #0a7b34;
+    }
+  }
+
+  .log-stream {
+    flex: 2 1 400px;
+    min-height: 420px;
+    border: 1px solid var(--gray200);
+    border-radius: 8px;
+    background: #0a0a0a;
+    color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 158px);
+  }
+
+  .log-stream-header {
+    padding: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .title {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .subtitle {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+  }
+
+  .status-indicator {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    background: rgba(255, 255, 255, 0.1);
+
+    &.streaming {
+      background: rgba(46, 204, 113, 0.2);
+      color: #2ecc71;
+    }
+
+    &.error {
+      background: rgba(231, 76, 60, 0.2);
+      color: #e74c3c;
+    }
+  }
+
+  .log-lines {
+    flex: 1;
+    overflow-y: scroll;
+    padding: 16px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .log-entry {
+    display: grid;
+    grid-template-columns: 140px auto;
+    gap: 8px;
+    padding: 2px 0;
+
+    .timestamp {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .message {
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .labels {
+      grid-column: span 2;
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  .empty-state {
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+  }
+}

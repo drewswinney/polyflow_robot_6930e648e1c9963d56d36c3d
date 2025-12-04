@@ -1,0 +1,205 @@
+/* Upright Inter variable font */
+@font-face {
+  font-family: "Inter";
+  src: url("/public/fonts/Inter-VariableFont_opsz,wght.ttf")
+    format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Italic Inter variable font */
+@font-face {
+  font-family: "Inter";
+  src: url("/public/fonts/Inter-Italic-VariableFont_opsz,wght.ttf")
+    format("truetype-variations");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("/public/fonts/Outfit-VariableFont_wght.ttf")
+    format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--fontColor);
+  font-family: "Inter", sans-serif;
+
+  .app-shell {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--gray100);
+  }
+}
+
+.content {
+  flex: 1;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 270px;
+    min-width: 270px;
+    padding: 12px;
+
+    .branding {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 18px;
+      letter-spacing: 0.02em;
+      color: var(--gray800);
+      font-family: "Outfit", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    .header {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: center;
+      justify-content: start;
+
+      &-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: start;
+        gap: 8px;
+        font-size: 14px;
+        width: 100%;
+      }
+    }
+  }
+
+  .page {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--borderColor);
+    border-radius: 12px;
+    background-color: #fff;
+    padding: 0px;
+    gap: 0px;
+
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--borderColor);
+
+      .sidebar-toggle {
+        display: none;
+        align-self: flex-start;
+        padding: 6px 10px;
+        margin-bottom: 6px;
+      }
+
+      .title {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+    }
+  }
+}
+
+@media (max-width: 930px) {
+  .content {
+    padding: 0;
+    flex-direction: column;
+
+    .sidebar {
+      display: none;
+      position: fixed;
+      inset: 0 auto 0 0;
+      width: 75%;
+      max-width: 320px;
+      background: #fff;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+      z-index: 20;
+      overflow-y: auto;
+
+      .branding {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 600;
+        font-size: 16px;
+        letter-spacing: 0.02em;
+        padding: 10px;
+        color: var(--gray800);
+      }
+    }
+
+    .sidebar.is-open {
+      display: flex;
+    }
+
+    .sidebar-overlay {
+      display: block;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      z-index: 10;
+    }
+
+    .page {
+      border: none;
+      border-radius: 0;
+      position: relative;
+
+      &-header {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+
+        .sidebar-toggle {
+          display: inline-flex;
+          position: absolute;
+          left: 16px;
+          top: 32px;
+        }
+
+        .title {
+          width: 100%;
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+
+          h5 {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
